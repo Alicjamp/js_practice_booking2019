@@ -113,6 +113,7 @@ function simpleFizzBuzz(n) {
   } else {
     return n
   }
+}
 
   // 3 * 5 = 15, % is divisable by, 0 for no remainders
 
