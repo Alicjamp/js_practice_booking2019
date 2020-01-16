@@ -26,3 +26,36 @@ describe("A valid DNA string may contain characters C, G, T or A only", () => {
         expect(isValidDNA("SABT")).toBe(false);
     });
 });
+
+describe("receive a number and return true/false depending on whether it is a prime number or not", () => {
+    test("returns true", () => {
+        expect(isItPrime(4)).toBe(false);
+    });
+
+    test("returns false", () => {
+        expect(isItPrime(12)).toBe(false);
+    });
+
+    test("returns false", () => {
+            expect(isItPrime(7)).toBe(true);
+    });
+});
+
+describe("Return n by n matrix using fill as a string", () => {
+    test("returns 3 by 3 matrix and foo as filler", () => {
+        expect(createMatrix(3,"foo")).toEqual(
+            [
+         ["foo", "foo", "foo"],
+         ["foo", "foo", "foo"],
+         ["foo", "foo", "foo"]
+            ]);
+    });
+
+    test("returns 2 by 2 matrix and tim as filler", () => {
+        expect(createMatrix(2,"tim")).toEqual(
+            [
+            ["tim", "tim"],
+            ["tim", "tim"]
+            ]);
+    });
+});

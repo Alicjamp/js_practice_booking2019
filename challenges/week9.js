@@ -24,7 +24,7 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   var arr = str.split("")
-  var rejects = arr.filter(function(letter) {
+  var rejects = arr.filter(function (letter) {
     if (letter !== "A" && letter !== "C" && letter !== "T" && letter !== "G") {
       return letter
     }
@@ -47,7 +47,11 @@ const getComplementaryDNA = str => {
  * @returns {Boolean}
  */
 const isItPrime = n => {
-  if (n === undefined) throw new Error("n is required");
+  if (n === undefined) throw new Error("n is required"); {
+    for (var i = 2; i < n; i++)
+      if (n % i === 0) return false;
+    return n > 1;
+  }
 };
 
 /**
@@ -64,6 +68,11 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  var arr = new Array(n);
+  var newArr = arr.fill(fill)
+  var reArr = new Array(n)
+  return reArr.fill(newArr)
+  // [ fill * n ] * n
 };
 
 /**
