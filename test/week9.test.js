@@ -37,25 +37,89 @@ describe("receive a number and return true/false depending on whether it is a pr
     });
 
     test("returns false", () => {
-            expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
     });
 });
 
 describe("Return n by n matrix using fill as a string", () => {
     test("returns 3 by 3 matrix and foo as filler", () => {
-        expect(createMatrix(3,"foo")).toEqual(
+        expect(createMatrix(3, "foo")).toEqual(
             [
-         ["foo", "foo", "foo"],
-         ["foo", "foo", "foo"],
-         ["foo", "foo", "foo"]
+                ["foo", "foo", "foo"],
+                ["foo", "foo", "foo"],
+                ["foo", "foo", "foo"]
             ]);
     });
 
     test("returns 2 by 2 matrix and tim as filler", () => {
-        expect(createMatrix(2,"tim")).toEqual(
+        expect(createMatrix(2, "tim")).toEqual(
             [
-            ["tim", "tim"],
-            ["tim", "tim"]
+                ["tim", "tim"],
+                ["tim", "tim"]
             ]);
     });
 });
+
+
+describe("areWeCovered return true or false if at least 3 available per day", () => {
+    test("returns false if less than 3 staff available", () => {
+        const staff = [
+            {
+                name: "Sally",
+                rota: ["Monday", "Tuesday", "Friday"]
+            },
+            {
+                name: "Pedro",
+                rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]
+            },
+            {
+                name: "Jocelyn",
+                rota: ["Saturday", "Sunday", "Thursday", "Monday"]
+            },
+            {
+                name: "Dylan",
+                rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]
+            },
+            {
+                name: "Sienna",
+                rota: ["Saturday", "Sunday"]
+            }
+        ];
+
+        expect(areWeCovered(staff, "Wednesday")).toBe(false);
+    });
+
+    test("returns true if 3 or more staff available", () => {
+        const staff = [
+            {
+                name: "Sally",
+                rota: ["Monday", "Tuesday", "Friday"]
+            },
+            {
+                name: "Pedro",
+                rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]
+            },
+            {
+                name: "Jocelyn",
+                rota: ["Saturday", "Sunday", "Thursday", "Monday"]
+            },
+            {
+                name: "Dylan",
+                rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]
+            },
+            {
+                name: "Sienna",
+                rota: ["Saturday", "Sunday"]
+            }
+        ];
+
+        expect(areWeCovered(staff, "Sunday")).toBe(true);
+    });
+});
+
+
+
+
+
+
+

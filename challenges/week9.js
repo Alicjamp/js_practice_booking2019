@@ -90,7 +90,11 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-};
+  const arr = staff.filter(function(member) {
+    return member.rota.includes(day)
+  })
+  return (arr.length > 2) 
+  };
 
 module.exports = {
   sumMultiples,
