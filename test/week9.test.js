@@ -27,6 +27,16 @@ describe("A valid DNA string may contain characters C, G, T or A only", () => {
     });
 });
 
+describe("T always pairs with A, and C always pairs with G",  () => {
+    test("a string of ACTG would have a complementary DNA string of TGAC", () => {
+        expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+    });
+
+    test("returns false", () => {
+        expect(getComplementaryDNA("SABT")).toBe(false);
+    });
+});
+
 describe("receive a number and return true/false depending on whether it is a prime number or not", () => {
     test("returns true", () => {
         expect(isItPrime(4)).toBe(false);
