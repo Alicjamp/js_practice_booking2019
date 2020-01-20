@@ -41,7 +41,11 @@ const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
   var valid = isValidDNA(str)
   if (valid) {
-    return "TGAC"
+      const pairs = { A: 'T', T: 'A', C: 'G', G: 'C' }
+      return str
+        .split('')
+        .map(string => pairs[string])
+        .join('')
   }
   return false
 };
@@ -95,11 +99,11 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-  const arr = staff.filter(function(member) {
+  const arr = staff.filter(function (member) {
     return member.rota.includes(day)
   })
-  return (arr.length > 2) 
-  };
+  return (arr.length > 2)
+};
 
 module.exports = {
   sumMultiples,
