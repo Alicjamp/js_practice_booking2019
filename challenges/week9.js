@@ -47,7 +47,7 @@ const getComplementaryDNA = str => {
         .map(string => pairs[string])
         .join('')
   }
-  return false
+  return "Not Valid"
 };
 
 /**

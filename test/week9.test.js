@@ -37,7 +37,7 @@ describe("T always pairs with A, and C always pairs with G",  () => {
     });
 
     test("returns false", () => {
-        expect(getComplementaryDNA("SABT")).toBe(false);
+        expect(getComplementaryDNA("SABT")).toBe("Not Valid");
     });
 });
 
