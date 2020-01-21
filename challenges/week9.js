@@ -11,7 +11,7 @@ const sumMultiples = arr => {
       return n
     }
   })
-  return newArr.reduce(function (acc, amount) {
+  return newArr.reduce((acc, amount) => {
     return acc += amount
   })
 }
@@ -79,8 +79,8 @@ const createMatrix = (n, fill) => {
   if (fill === undefined) throw new Error("fill is required");
   var arr = new Array(n);
   var newArr = arr.fill(fill)
-  var reArr = new Array(n)
-  return reArr.fill(newArr)
+  var repeatArr = new Array(n)
+  return repeatArr.fill(newArr)
   // [ fill * n ] * n
 };
 
