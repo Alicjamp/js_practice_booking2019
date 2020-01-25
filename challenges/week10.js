@@ -22,10 +22,10 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if (start&&end&&step) {
-    return Array.from({length:((end-start)/step)+1},(v,i)=>start+i*step)
-  } else { 
-    return Array.from({length:end-start+1},(v,i)=>i+start)
+  if (start && end && step) {
+    return Array.from({ length: ((end - start) / step) + 1 }, (v, i) => start + i * step)
+  } else {
+    return Array.from({ length: end - start + 1 }, (v, i) => i + start)
   }
 };
 
@@ -61,9 +61,27 @@ const createRange = (start, end, step) => {
  * @param {Array} users
  */
 const getScreentimeAlertList = (users, date) => {
-  if (users === undefined) throw new Error("users is required");
-  if (date === undefined) throw new Error("date is required");
+  // if (users === undefined) throw new Error("users is required");
+  // // if (date === undefined) throw new Error("date is required");
+  let overs = users.map((user) => {
+    var day = user.screenTime.filter(function (obj) {
+      return obj.date === date
+    })
+    if (day.length > 0) {
+      var hours = Object.values(day[0].usage)
+      var over = hours.reduce((acc, n) => {
+        return acc + n
+      })
+      if (over > 100) {
+        return user.username
+      }
+    }
+  })
+return overs.filter ( Boolean )
 };
+//  users.screenTime.usage - values
+//  flter date value
+
 
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:

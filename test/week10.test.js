@@ -36,7 +36,7 @@ describe("create an array giving the start and end and step, if no step given th
 
 describe("returns an array of usernames of users with over 100 hours of screentime on given date", () => {
     test("returns usernames", () => {
-        [
+        const users = [
             {
                 username: "beth_1234",
                 name: "Beth Smith",
@@ -57,10 +57,10 @@ describe("returns an array of usernames of users with over 100 hours of screenti
                 ]
             },
         ]
-        expect(getScreentimeAlertList("2019-05-04")).toBe(["beth_1234"]);
+        expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234"]);
     });
     test("returns usernames", () => {
-        [
+        const users = [
             {
                 username: "beth_1234",
                 name: "Beth Smith",
@@ -81,10 +81,10 @@ describe("returns an array of usernames of users with over 100 hours of screenti
                 ]
             },
         ]
-        expect(getScreentimeAlertList("2019-05-04")).toBe(["beth_1234", "sam_j_1989"]);
+        expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234", "sam_j_1989"]);
     });
     test("returns usernames", () => {
-        [
+        const users = [
             {
                 username: "beth_1234",
                 name: "Beth Smith",
@@ -105,7 +105,7 @@ describe("returns an array of usernames of users with over 100 hours of screenti
                 ]
             },
         ]
-        expect(getScreentimeAlertList("2019-06-13")).toBe([""]);
+        expect(getScreentimeAlertList(users, "2019-06-13")).toEqual([]);
     });
 
 });
