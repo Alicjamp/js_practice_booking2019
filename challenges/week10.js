@@ -119,7 +119,6 @@ const findWinner = board => {
     indicesOfX.push(index)
     index = arr.indexOf(cross, index + 1)
   }
-  console.log(indicesOfX)
   {
     var indicesOf0 = []
     var naught = '0'
@@ -128,7 +127,6 @@ const findWinner = board => {
       indicesOf0.push(indexNaught)
       indexNaught = arr.indexOf(naught, indexNaught + 1)
     }
-    console.log(indicesOf0)
   }
   const xWins = (indicesOfX.includes(0) && indicesOfX.includes(3) && indicesOfX.includes(6)) ||
     (indicesOfX.includes(0) && indicesOfX.includes(1) && indicesOfX.includes(2)) ||
@@ -155,7 +153,7 @@ const findWinner = board => {
   } else {
     return null
   }
-  // (0 && 1 && 2) || (3 && 4 && 5) || (6 && 7 && 8) || (0 && 3 && 6) || (1 && 4 && 7) || (2 && 5 && 8) || (0 && 4 && 8) || (6 && 4 && 2)
+  // winning conditions: (0 && 1 && 2) || (3 && 4 && 5) || (6 && 7 && 8) || (0 && 3 && 6) || (1 && 4 && 7) || (2 && 5 && 8) || (0 && 4 && 8) || (6 && 4 && 2)
 };
 
 module.exports = {
