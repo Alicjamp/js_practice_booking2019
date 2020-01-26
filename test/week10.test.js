@@ -142,7 +142,7 @@ describe("Returns X is X wins, 0 if 0 wins, null if no winner", () => {
         const board = [
             ["0", "0", null],
             ["X", null, "0"],
-            ["X", null, "0"]
+            ["X", null, null]
         ]
         expect(findWinner(board)).toEqual(null);
     });

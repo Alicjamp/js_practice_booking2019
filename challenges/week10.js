@@ -111,6 +111,51 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  const arr = board.flat()
+  var indicesOfX = []
+  var cross = 'X'
+  var index = arr.indexOf(cross);
+  while (index != -1) {
+    indicesOfX.push(index)
+    index = arr.indexOf(cross, index + 1)
+  }
+  console.log(indicesOfX)
+  {
+    var indicesOf0 = []
+    var naught = '0'
+    var indexNaught = arr.indexOf(naught);
+    while (indexNaught != -1) {
+      indicesOf0.push(indexNaught)
+      indexNaught = arr.indexOf(naught, indexNaught + 1)
+    }
+    console.log(indicesOf0)
+  }
+  const xWins = (indicesOfX.includes(0) && indicesOfX.includes(3) && indicesOfX.includes(6)) ||
+    (indicesOfX.includes(0) && indicesOfX.includes(1) && indicesOfX.includes(2)) ||
+    (indicesOfX.includes(3) && indicesOfX.includes(4) && indicesOfX.includes(5)) ||
+    (indicesOfX.includes(6) && indicesOfX.includes(7) && indicesOfX.includes(8)) ||
+    (indicesOfX.includes(1) && indicesOfX.includes(4) && indicesOfX.includes(7)) ||
+    (indicesOfX.includes(2) && indicesOfX.includes(5) && indicesOfX.includes(8)) ||
+    (indicesOfX.includes(0) && indicesOfX.includes(4) && indicesOfX.includes(8)) ||
+    (indicesOfX.includes(6) && indicesOfX.includes(4) && indicesOfX.includes(2))
+
+   const oWins = (indicesOf0.includes(0) && indicesOf0.includes(3) && indicesOf0.includes(6)) ||
+    (indicesOf0.includes(0) && indicesOf0.includes(1) && indicesOf0.includes(2)) ||
+    (indicesOf0.includes(3) && indicesOf0.includes(4) && indicesOf0.includes(5)) ||
+    (indicesOf0.includes(6) && indicesOf0.includes(7) && indicesOf0.includes(8)) ||
+    (indicesOf0.includes(1) && indicesOf0.includes(4) && indicesOf0.includes(7)) ||
+    (indicesOf0.includes(2) && indicesOf0.includes(5) && indicesOf0.includes(8)) ||
+    (indicesOf0.includes(0) && indicesOf0.includes(4) && indicesOf0.includes(8)) ||
+    (indicesOf0.includes(6) && indicesOf0.includes(4) && indicesOf0.includes(2))
+
+  if (xWins) {
+    return "X"
+  } else if (oWins) {
+    return "0"
+  } else {
+    return null
+  }
+  // (0 && 1 && 2) || (3 && 4 && 5) || (6 && 7 && 8) || (0 && 3 && 6) || (1 && 4 && 7) || (2 && 5 && 8) || (0 && 4 && 8) || (6 && 4 && 2)
 };
 
 module.exports = {
