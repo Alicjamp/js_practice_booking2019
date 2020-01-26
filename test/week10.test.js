@@ -35,7 +35,7 @@ describe("create an array giving the start and end and step, if no step given th
 });
 
 describe("returns an array of usernames of users with over 100 hours of screentime on given date", () => {
-    test("returns usernames", () => {
+    test("returns username beth_1234", () => {
         const users = [
             {
                 username: "beth_1234",
@@ -59,7 +59,7 @@ describe("returns an array of usernames of users with over 100 hours of screenti
         ]
         expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234"]);
     });
-    test("returns usernames", () => {
+    test("returns usernames beth_1234 and sam_j_1989", () => {
         const users = [
             {
                 username: "beth_1234",
@@ -83,7 +83,7 @@ describe("returns an array of usernames of users with over 100 hours of screenti
         ]
         expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234", "sam_j_1989"]);
     });
-    test("returns usernames", () => {
+    test("returns usernames, empty", () => {
         const users = [
             {
                 username: "beth_1234",
@@ -107,5 +107,43 @@ describe("returns an array of usernames of users with over 100 hours of screenti
         ]
         expect(getScreentimeAlertList(users, "2019-06-13")).toEqual([]);
     });
+});
 
+describe("Turns hexadecimal code to RGB code", () => {
+    test("returns rgb(255,17,51)", () => {
+        expect(hexToRGB("#FF1133")).toEqual("rgb(255,17,51)");
+    });
+    test("returns rgb(255,51,0)", () => {
+        expect(hexToRGB("#FF3300")).toEqual("rgb(255,51,0)");
+    });
+    test("returns rgb(128,0,128)", () => {
+        expect(hexToRGB("#800080")).toEqual("rgb(128,0,128)");
+    });
+});
+
+describe("Returns X is X wins, 0 if 0 wins, null if no winner", () => {
+    test("returns X", () => {
+        const board = [
+            ["X", "0", null],
+            ["X", null, "0"],
+            ["X", null, "0"]
+        ]
+        expect(findWinner(board)).toEqual("X");
+    });
+    test("returns 0", () => {
+        const board = [
+            ["0", "0", null],
+            ["X", "0", "0"],
+            ["X", null, "0"]
+        ]
+        expect(findWinner(board)).toEqual("0");
+    });
+    test("returns null", () => {
+        const board = [
+            ["0", "0", null],
+            ["X", null, "0"],
+            ["X", null, "0"]
+        ]
+        expect(findWinner(board)).toEqual(null);
+    });
 });

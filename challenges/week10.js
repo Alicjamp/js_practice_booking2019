@@ -64,7 +64,7 @@ const getScreentimeAlertList = (users, date) => {
   // if (users === undefined) throw new Error("users is required");
   // // if (date === undefined) throw new Error("date is required");
   let overs = users.map((user) => {
-    var day = user.screenTime.filter(function (obj) {
+    var day = user.screenTime.filter((obj) => {
       return obj.date === date
     })
     if (day.length > 0) {
@@ -77,11 +77,10 @@ const getScreentimeAlertList = (users, date) => {
       }
     }
   })
-return overs.filter ( Boolean )
+  return overs.filter(Boolean)
 };
 //  users.screenTime.usage - values
 //  flter date value
-
 
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
@@ -95,6 +94,9 @@ return overs.filter ( Boolean )
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  var rgb = hexStr.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i).substring(1).match(/.{2}/g).map(n =>
+    parseInt(n, 16))
+  return "rgb(" + rgb + ")"
 };
 
 /**
